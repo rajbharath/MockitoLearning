@@ -1,0 +1,67 @@
+1. In a given date , meeting organizer gives list of event
+2. an event contains which meeting it is, start time and end time , no of attendees
+3. conference center owner , checks the meeting date whether it is operational or not
+4. then conference center owner, trying to get the available rooms for the event
+5. conference owner gives an event to all the conference center and gets the available rooms of list for that event
+5.1 a conference room checks for the below rules for determining the availablity of a room
+                i) no of attendees of that event should be less than or equal to the room capacity
+                ii) Checks whether it is under maintainenance at the event date and start time and end time
+                iii) there should not be any overlapping meeting - for this there is  eventregistration is maintained , in which we can see the below information
+                                - date, start time,end time, event
+ 
+ 
+6. similarly for the all events ,conference center owner finds the list of available rooms.
+7. after finding the list of available rooms for each event, he returns the plan to the meeting organizer
+7.1 Plan contains the following
+                - events, list of available room
+ 
+ 
+classes:
+ 
+Conference
+------------
+i) List of event
+ 
+- getEvents
+ 
+ 
+Event
+------
+i) date it is happening
+ii) start time
+iii) end time
+iv) no of attendees
+ 
+- getDate
+- getStartTime
+- getEndTime
+- getNoOfAttendees
+ 
+ 
+ConferenceCenterOwner
+----------------------
+i) conference
+ii) list of conference room
+iii) list of non operation date
+iv) plan
+ 
+-getPlan Conference
+-getAvailableRooms - Event
+ 
+ 
+ 
+ConferenceRoom
+---------------
+i) Event
+ii) EventRegistration
+iii) Capacity
+iv) List of Maintained Date
+ 
+-isAvailableFor - Event
+ 
+ 
+EventRegistration
+------------------
+i) eventsBooked
+ 
+-getBookedEvents
