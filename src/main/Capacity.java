@@ -1,31 +1,11 @@
 package main;
 
-public class Capacity extends Number {
+public class Capacity implements Comparable<Capcity> {
 
-	private int capacity;
-
-	public Capacity(int capacity) {
-		this.capacity = capacity;
-	}
-
-	@Override
-	public double doubleValue() {
-		return intValue();
-	}
-
-	@Override
-	public float floatValue() {
-		return intValue();
-	}
-
-	@Override
-	public int intValue() {
-		return capacity;
-	}
-
-	@Override
-	public long longValue() {
-		return intValue();
+	private Integer capacity
+	
+	public int compareTo(Capacity o){
+		return 0;
 	}
 
 }
