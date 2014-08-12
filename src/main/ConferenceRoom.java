@@ -4,12 +4,14 @@ import java.util.Date;
 import java.util.List;
 
 public class ConferenceRoom {
-	EventRegister register;
-	Capacity capacity;
+	String roomName;
+	BookingHistory bookingHistory;
+	Integer capacity;
 	List<Date> maintenanceDates;
 
-	public ConferenceRoom() {
-		register = new EventRegister();
+	public ConferenceRoom(String roomName) {
+		this.roomName = roomName;
+		bookingHistory = new BookingHistory();
 	}
 
 	public boolean isAvailableFor(Event event) {

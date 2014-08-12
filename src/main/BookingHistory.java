@@ -2,7 +2,7 @@ package main;
 
 import java.util.List;
 
-public class EventRegister {
+public class BookingHistory {
 	List<Event> bookedEvents;
 
 	public void book(Event event) {
@@ -13,7 +13,7 @@ public class EventRegister {
 		bookedEvents.remove(event);
 	}
 
-	public boolean isOverlapping(Event event) {
+	public boolean isAnyOverLappingEventFor(Event inputEvent) {
 		return false;
 	}
 }

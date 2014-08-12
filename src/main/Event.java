@@ -3,41 +3,36 @@ package main;
 import java.util.Date;
 
 public class Event {
+	String eventName;
 	Date date;
 	String startTime;
 	String endTime;// 24hours format 23.24
 	int noOfAttendees;
 
-	public Date getDate() {
-		return date;
+	public Event(String eventName, Date date, String startTime, String endTime,
+			int noOfAttendees) {
+		super();
+		this.eventName = eventName;
+		this.date = date;
+		this.startTime = startTime;
+		this.endTime = endTime;
+		this.noOfAttendees = noOfAttendees;
 	}
 
-	public void setDate(Date date) {
-		this.date = date;
+	public Date getDate() {
+		return date;
 	}
 
 	public String getStartTime() {
 		return startTime;
 	}
 
-	public void setStartTime(String startTime) {
-		this.startTime = startTime;
-	}
-
 	public String getEndTime() {
 		return endTime;
 	}
 
-	public void setEndTime(String endTime) {
-		this.endTime = endTime;
-	}
-
 	public int getNoOfAttendees() {
 		return noOfAttendees;
-	}
-
-	public void setNoOfAttendees(int noOfAttendees) {
-		this.noOfAttendees = noOfAttendees;
 	}
 
 }

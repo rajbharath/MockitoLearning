@@ -1,67 +1,101 @@
-1. In a given date , meeting organizer gives list of event
-2. an event contains which meeting it is, start time and end time , no of attendees
-3. conference center owner , checks the meeting date whether it is operational or not
-4. then conference center owner, trying to get the available rooms for the event
-5. conference owner gives an event to all the conference center and gets the available rooms of list for that event
-5.1 a conference room checks for the below rules for determining the availablity of a room
-                i) no of attendees of that event should be less than or equal to the room capacity
-                ii) Checks whether it is under maintainenance at the event date and start time and end time
-                iii) there should not be any overlapping meeting - for this there is  eventregistration is maintained , in which we can see the below information
-                                - date, start time,end time, event
+Problem Statement:
+	Conference Organizer wants to arrange a conference. He approaches a Conference Center Owner for the Plan for that conference.
+Conference Center Owner needs to return the Plan for the conference.
+
+Usecase:
+ 
+1. Conference Center Owner gets the input as Conference and returns the plan
+
+2. A Conference Center Owner contains the following
+	- List of ConferenceRoom
+	- List of Non-Operational Date
+
+3. A ConferenceRoom contains the following
+	- Room Name
+	- BookingHistory
+	- List of Maintenance Date
+	- Capacity
+	
+4. A Conference contains the following
+	- Conference Name
+	- start Date
+	- end Date
+	- List of Event
+5. An Event contains the following
+	- eventName
+	- eventDate
+	- startTime
+	- endTime
+	- no of attendees
+6. Conference Center owner checks the conference dates whether it is operational on those dates or not  
+7. If it is operation on those dates, then conference center owner, gathers the list of available Conference Rooms for the event
+8. Availability of ConferenceRoom is determined by
+                i) no of attendees of that event is <= the conference room capacity
+                ii) Date of event should not fall in time of room maintenance date 
+                iii) Conference Room should not have a booking on that event date and time. Conference Room checks with its Booking History for this condition.
+9. Booking History Contains the following
+	- List of booked events
+	
+10. Repeat step 7 to 9 till for all the events in the Conference
+11. Return the Plan
+12. Plan contains the following
+				- Conference Name
+                - Map of events, list of available room
  
  
-6. similarly for the all events ,conference center owner finds the list of available rooms.
-7. after finding the list of available rooms for each event, he returns the plan to the meeting organizer
-7.1 Plan contains the following
-                - events, list of available room
- 
- 
-classes:
- 
-Conference
-------------
-i) List of event
- 
-- getEvents
- 
- 
-Event
-------
-i) date it is happening
-ii) start time
-iii) end time
-iv) no of attendees
- 
-- getDate
-- getStartTime
-- getEndTime
-- getNoOfAttendees
- 
+Classes:
  
 ConferenceCenterOwner
 ----------------------
-i) conference
-ii) list of conference room
-iii) list of non operation date
-iv) plan
+i) list of conference room : List<ConferenceRoom>
+ii) non operation dates : List<Date>
  
--getPlan Conference
--getAvailableRooms - Event
- 
- 
- 
+-getPlan(Conference) : Plan
+
 ConferenceRoom
 ---------------
-i) Event
-ii) EventRegistration
-iii) Capacity
-iv) List of Maintained Date
+i) roomName : String
+ii) bookingHistory : BookingHistory
+iii) Capacity : Integer
+iv) maintenanceDates : List<Date> 
  
--isAvailableFor - Event
+- isAvailableFor(Event) : Boolean
  
+Conference
+------------
+i) name : String
+ii) startDate : Date
+iii) endDate : Date
+iv) List of event : List<Event>
  
-EventRegistration
-------------------
-i) eventsBooked
+- getEvents()
+- getStartDate()
+- getEndDate()
+
+
+Event
+------
+i) eventName : String
+ii) date : Date
+iii) start time : String //24 format 23.21 
+iv) end time : String  //24 format 23.21
+v) no of attendees : Integer
  
--getBookedEvents
+- getDate() : Date
+- getStartTime() : String
+- getEndTime() : String
+- getNoOfAttendees() : int
+- getName() : String
+ 
+BookingHistory
+--------------
+i) eventsBooked : List<Event>
+ 
+- isAnyOverLappingEventFor(inputEvent)
+
+Plan:
+------
+i) conferenceName : String
+ii) eventsWithAvailableRooms : Map<Event,List<ConferenceRoom>>
+
+- getAvailableRoomsForAllEvents()
