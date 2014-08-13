@@ -1,44 +1,47 @@
 Problem Statement:
-	Conference Organizer wants to arrange a conference. He approaches a Conference Center Owner for the Plan for that conference.
-Conference Center Owner needs to return the Plan for the conference.
+	Conference Organizer wants to arrange a conference. He approaches a Conference Center Owner for a Plan of the conference.
+Conference Center Owner gives a Plan for the conference.
 
-Usecase:
- 
-1. Conference Center Owner gets the input as Conference and returns the plan
 
-2. A Conference Center Owner contains the following
+Note:
+
+1. A Conference Center Owner contains the following
 	- List of ConferenceRoom
 	- List of Non-Operational Date
 
-3. A ConferenceRoom contains the following
+2. A ConferenceRoom contains the following
 	- Room Name
 	- BookingHistory
 	- List of Maintenance Date
 	- Capacity
 	
-4. A Conference contains the following
+3. A Conference contains the following
 	- Conference Name
 	- start Date
 	- end Date
 	- List of Event
-5. An Event contains the following
+4. An Event contains the following
 	- eventName
 	- eventDate
 	- startTime
 	- endTime
 	- no of attendees
-6. Conference Center owner checks the conference dates whether it is operational on those dates or not  
-7. If it is operation on those dates, then conference center owner, gathers the list of available Conference Rooms for the event
-8. Availability of ConferenceRoom is determined by
+5. Booking History Contains the following
+	- List of booked events
+
+Usecase:
+ 
+1. Conference Center Owner gets the input as Conference and returns the plan
+
+2. Conference Center owner checks the conference dates whether it is operational on those dates or not  
+3. If it is operational on those dates then the conference center owner finds the list of available Conference Rooms for the event
+4. Availability of ConferenceRoom is determined by
                 i) no of attendees of that event is <= the conference room capacity
                 ii) Date of event should not fall in time of room maintenance date 
                 iii) Conference Room should not have a booking on that event date and time. Conference Room checks with its Booking History for this condition.
-9. Booking History Contains the following
-	- List of booked events
-	
-10. Repeat step 7 to 9 till for all the events in the Conference
-11. Return the Plan
-12. Plan contains the following
+5. Repeat step 7 to 9 till for all the events in the Conference
+6. Return the Plan
+7. Plan contains the following
 				- Conference Name
                 - Map of events, list of available room
  
@@ -48,7 +51,7 @@ Classes:
 ConferenceCenterOwner
 ----------------------
 i) list of conference room : List<ConferenceRoom>
-ii) non operation dates : List<Date>
+ii) non operational dates : List<Date>
  
 -getPlan(Conference) : Plan
 

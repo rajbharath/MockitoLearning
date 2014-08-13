@@ -9,7 +9,6 @@ public class Plan {
 
 	public Plan(String conferenceName,
 			Map<Event, List<ConferenceRoom>> eventsWithAvailableRooms) {
-		super();
 		this.conferenceName = conferenceName;
 		this.eventsWithAvailableRooms = eventsWithAvailableRooms;
 	}

@@ -1,15 +1,14 @@
 package main;
 
-import java.util.Date;
 import java.util.List;
 
 public class Conference {
 	String name;
-	Date startDate;
-	Date endDate;
+	String startDate;
+	String endDate;
 	List<Event> events;
 
-	public Conference(String name, Date startDate, Date endDate) {
+	public Conference(String name, String startDate, String endDate) {
 		this.name = name;
 		this.startDate = startDate;
 		this.endDate = endDate;
@@ -19,11 +18,11 @@ public class Conference {
 		return name;
 	}
 
-	public Date getStartDate() {
+	public String getStartDate() {
 		return startDate;
 	}
 
-	public Date getEndDate() {
+	public String getEndDate() {
 		return endDate;
 	}
 
