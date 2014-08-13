@@ -17,14 +17,13 @@ Note:
 	
 3. A Conference contains the following
 	- Conference Name
-	- start Date
-	- end Date
+	- start
+	- end
 	- List of Event
 4. An Event contains the following
 	- eventName
-	- eventDate
-	- startTime
-	- endTime
+	- start
+	- end
 	- no of attendees
 5. Booking History Contains the following
 	- List of booked events
@@ -67,27 +66,25 @@ iv) maintenanceDates : List<Date>
 Conference
 ------------
 i) name : String
-ii) startDate : Date
-iii) endDate : Date
+ii) start: String // DD-MM-YYYY-HH-MM format
+iii) end : String  // DD-MM-YYYY-HH-MM format
 iv) List of event : List<Event>
  
 - getEvents()
-- getStartDate()
-- getEndDate()
+- getStart()
+- getEnd()
 
 
 Event
 ------
 i) eventName : String
-ii) date : Date
-iii) start time : String //24 format 23.21 
-iv) end time : String  //24 format 23.21
-v) no of attendees : Integer
+ii) start: String // DD-MM-YYYY-HH-MM format
+iii) end : String  // DD-MM-YYYY-HH-MM format
+iv) no of attendees : Integer
  
-- getDate() : Date
-- getStartTime() : String
-- getEndTime() : String
-- getNoOfAttendees() : int
+- getStart() : String
+- getEnd() : String
+- getNoOfAttendees() : Integer
 - getName() : String
  
 BookingHistory
