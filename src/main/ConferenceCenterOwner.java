@@ -15,7 +15,6 @@ public class ConferenceCenterOwner {
 	}
 
 	private void initializeConferenceRooms() {
-		// TODO Auto-generated method stub
 		conferenceRooms = new ArrayList<ConferenceRoom>();
 		for (int i = 1; i <= 10; i++) {
 			conferenceRooms.add(new ConferenceRoom("Room" + i));
