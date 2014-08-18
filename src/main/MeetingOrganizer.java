@@ -4,6 +4,7 @@ public class MeetingOrganizer {
 
 	public static void main(String[] args) {
 
+		
 		Conference conference = new Conference("Hackathon", "13-08-2014",
 				"15-08-2014");
 		Event event1 = new Event("event 1", "13-08-2014-09-00",

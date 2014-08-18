@@ -15,6 +15,7 @@ public class ConferenceRoom {
 	}
 
 	public boolean isAvailableFor(Event event) {
+		event.getStartTime();
 		return false;
 	}
 }

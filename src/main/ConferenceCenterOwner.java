@@ -48,7 +48,12 @@ public class ConferenceCenterOwner {
 	}
 
 	public Plan getPlan(Conference conference) {
-
+		List<Event> events = conference.getEvents();
+		for (Event event : events) {
+			for (ConferenceRoom conferenceRoom : conferenceRooms) {
+				conferenceRoom.isAvailableFor(event);
+			}
+		}
 		return null;
 	}
 
